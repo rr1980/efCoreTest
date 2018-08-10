@@ -1,0 +1,12 @@
+﻿
+get-help Scaffold-DbContext -detailed
+
+#...Entites aus DB erzeugen...
+
+Scaffold-DbContext "Server=172.20.20.20;Database=CZLJAH;User Id=sa;Password=saadmin;" Microsoft.EntityFrameworkCore.SqlServer -StartupProject CZLJHAHEIM.DBMigration -Project CZLJHAHEIM.Entities -f -debug 
+
+...danach Context anpassen, an die richtige Stelle kopieren und im Entity-Projekt löschen.
+
+
+Add-Migration Init
+Update-Database

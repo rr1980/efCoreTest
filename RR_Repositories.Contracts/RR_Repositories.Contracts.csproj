@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RR_Models.Contracts\RR_Models.Contracts.csproj" />
+    <ProjectReference Include="..\RR_Models\RR_Models.csproj" />
+  </ItemGroup>
+
+</Project>

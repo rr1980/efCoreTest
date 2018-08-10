@@ -1,8 +1,9 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using RR_Repositories.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Web.Controllers
 {
@@ -14,9 +15,54 @@ namespace Web.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        [HttpGet("[action]")]
-        public IEnumerable<WeatherForecast> WeatherForecasts()
+        private readonly IBenutzerRepository _benutzerRepository;
+
+        public SampleDataController(IBenutzerRepository benutzerRepository)
         {
+            _benutzerRepository = benutzerRepository;
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IEnumerable<WeatherForecast>> WeatherForecasts()
+        {
+            //var benutzer1 = new Benutzer()
+            //{
+            //    UserName = "rr1980",
+            //    Passwort = "12345",
+            //};
+
+            //var benutzer2 = new Benutzer()
+            //{
+            //    UserName = "rr1980_3",
+            //    Passwort = "12345",
+            //};
+
+            //var p = new Person()
+            //{
+            //    Name = "Riesner",
+            //    Vorname = "Rene",
+            //    Adresse = new Adresse()
+            //    {
+            //        Plz = "15344",
+            //        Ort = "Strausberg"
+            //    }
+            //};
+
+
+            //benutzer1.Person = p;
+            //benutzer2.Person = p;
+
+            //try
+            //{
+            //    await _benutzerRepository.Add(benutzer1);
+            //}
+            //catch
+            //{
+            //    await _benutzerRepository.Add(benutzer2);
+            //}
+
+            //var reuslt = (await _benutzerRepository.GetAll()).ToList();
+
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
